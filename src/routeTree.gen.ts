@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as DiscografiaRouteImport } from './routes/discografia'
 import { Route as ContatoRouteImport } from './routes/contato'
@@ -25,6 +26,11 @@ const VideosRoute = VideosRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GaleriaRoute = GaleriaRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/discografia': typeof DiscografiaRoute
   '/galeria': typeof GaleriaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/videos': typeof VideosRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/discografia': typeof DiscografiaRoute
   '/galeria': typeof GaleriaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/videos': typeof VideosRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/discografia': typeof DiscografiaRoute
   '/galeria': typeof GaleriaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/videos': typeof VideosRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/discografia'
     | '/galeria'
+    | '/sitemap.xml'
     | '/sobre'
     | '/videos'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/discografia'
     | '/galeria'
+    | '/sitemap.xml'
     | '/sobre'
     | '/videos'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/discografia'
     | '/galeria'
+    | '/sitemap.xml'
     | '/sobre'
     | '/videos'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   DiscografiaRoute: typeof DiscografiaRoute
   GaleriaRoute: typeof GaleriaRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
   VideosRoute: typeof VideosRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galeria': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   DiscografiaRoute: DiscografiaRoute,
   GaleriaRoute: GaleriaRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
   VideosRoute: VideosRoute,
 }
