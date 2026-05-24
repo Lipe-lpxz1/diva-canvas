@@ -103,7 +103,7 @@ export function Scrollytelling() {
                 refs.current[i] = el;
               }}
               data-idx={i}
-              className="flex min-h-[50vh] md:min-h-[60vh] flex-col justify-center py-12 md:py-0"
+              className="flex min-h-[50vh] md:min-h-[70vh] flex-col justify-center py-12 md:py-0"
             >
               {/* Mobile Inline Image */}
               <div className="md:hidden mb-6 aspect-[16/9] w-full overflow-hidden rounded-sm border border-border">

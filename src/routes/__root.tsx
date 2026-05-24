@@ -122,7 +122,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SiteHeader />
-      <main className="min-h-screen overflow-hidden">
+      <main className="min-h-screen">
         <div key={router.state.location.pathname} className="animate-page-transition">
           <Outlet />
         </div>
