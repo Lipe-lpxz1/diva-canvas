@@ -31,15 +31,27 @@ export function Scrollytelling() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number((entry.target as HTMLElement).dataset.idx);
-            setActive(idx);
+      () => {
+        let closestIdx = -1;
+        let minDistance = Infinity;
+        const viewportCenter = window.innerHeight / 2;
+
+        refs.current.forEach((el, idx) => {
+          if (!el) return;
+          const rect = el.getBoundingClientRect();
+          const elementCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(elementCenter - viewportCenter);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestIdx = idx;
           }
         });
+
+        if (closestIdx !== -1) {
+          setActive(closestIdx);
+        }
       },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+      { rootMargin: "-20% 0px -20% 0px", threshold: 0 }
     );
     refs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();

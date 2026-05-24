@@ -36,7 +36,7 @@ export function SiteHeader() {
           className="font-display text-lg uppercase tracking-luxury text-brand-light"
           onClick={() => setOpen(false)}
         >
-          Danella&nbsp;Vale
+          Danella
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
