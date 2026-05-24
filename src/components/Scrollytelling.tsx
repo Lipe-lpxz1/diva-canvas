@@ -27,7 +27,7 @@ const chapters = [
 
 export function Scrollytelling() {
   const [active, setActive] = useState(0);
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const refs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
