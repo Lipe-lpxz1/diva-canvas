@@ -30,31 +30,32 @@ export function Scrollytelling() {
   const refs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      () => {
-        let closestIdx = -1;
-        let minDistance = Infinity;
-        const viewportCenter = window.innerHeight / 2;
+    const handleScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let closestIdx = 0;
+      let minDistance = Infinity;
 
-        refs.current.forEach((el, idx) => {
-          if (!el) return;
-          const rect = el.getBoundingClientRect();
-          const elementCenter = rect.top + rect.height / 2;
-          const distance = Math.abs(elementCenter - viewportCenter);
-          if (distance < minDistance) {
-            minDistance = distance;
-            closestIdx = idx;
-          }
-        });
-
-        if (closestIdx !== -1) {
-          setActive(closestIdx);
+      refs.current.forEach((el, idx) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elementCenter - viewportCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIdx = idx;
         }
-      },
-      { rootMargin: "-20% 0px -20% 0px", threshold: 0 }
-    );
-    refs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+      });
+
+      setActive(closestIdx);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Run once on mount
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -73,8 +74,8 @@ export function Scrollytelling() {
       </div>
 
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
-        {/* Sticky image */}
-        <div className="md:col-span-6 md:col-start-7 md:order-2">
+        {/* Sticky image (Desktop only) */}
+        <div className="hidden md:block md:col-span-6 md:col-start-7 md:order-2">
           <div className="sticky top-24 aspect-[4/5] overflow-hidden">
             {chapters.map((c, i) => (
               <img
@@ -94,7 +95,7 @@ export function Scrollytelling() {
         </div>
 
         {/* Chapters */}
-        <ol className="md:col-span-5 md:order-1">
+        <ol className="md:col-span-5 md:order-1 w-full">
           {chapters.map((c, i) => (
             <li
               key={c.no}
@@ -102,12 +103,22 @@ export function Scrollytelling() {
                 refs.current[i] = el;
               }}
               data-idx={i}
-              className="flex min-h-[60vh] flex-col justify-center"
+              className="flex min-h-[50vh] md:min-h-[60vh] flex-col justify-center py-12 md:py-0"
             >
+              {/* Mobile Inline Image */}
+              <div className="md:hidden mb-6 aspect-[16/9] w-full overflow-hidden rounded-sm border border-border">
+                <img
+                  src={c.img}
+                  alt={c.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
               <div
                 className="transition-all duration-[600ms] ease-out"
                 style={{
-                  opacity: active === i ? 1 : 0.2,
+                  opacity: active === i ? 1 : 0.25,
                   transform: active === i ? "translateY(0)" : "translateY(6px)",
                 }}
               >
