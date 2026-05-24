@@ -117,12 +117,15 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
 
   return (
     <QueryClientProvider client={queryClient}>
       <SiteHeader />
-      <main className="min-h-screen">
-        <Outlet />
+      <main className="min-h-screen overflow-hidden">
+        <div key={router.state.location.pathname} className="animate-page-transition">
+          <Outlet />
+        </div>
       </main>
       <SiteFooter />
     </QueryClientProvider>

@@ -70,10 +70,10 @@ export function Scrollytelling() {
                 src={c.img}
                 alt={c.title}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-out"
+                className="absolute inset-0 h-full w-full object-cover transition-all duration-[800ms] ease-out"
                 style={{
                   opacity: active === i ? 1 : 0,
-                  transform: active === i ? "scale(1)" : "scale(1.04)",
+                  transform: active === i ? "scale(1)" : "scale(1.02)",
                 }}
               />
             ))}
@@ -93,10 +93,10 @@ export function Scrollytelling() {
               className="flex min-h-[60vh] flex-col justify-center"
             >
               <div
-                className="transition-all duration-1000 ease-out"
+                className="transition-all duration-[600ms] ease-out"
                 style={{
-                  opacity: active === i ? 1 : 0.25,
-                  transform: active === i ? "translateY(0)" : "translateY(8px)",
+                  opacity: active === i ? 1 : 0.2,
+                  transform: active === i ? "translateY(0)" : "translateY(6px)",
                 }}
               >
                 <span className="font-display text-2xl italic text-brand-accent">

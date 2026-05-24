@@ -15,7 +15,10 @@ export const Route = createFileRoute("/sobre")({
       { property: "og:description", content: "Biografia da cantora Danella." },
       { property: "og:url", content: "/sobre" },
     ],
-    links: [{ rel: "canonical", href: "/sobre" }],
+    links: [
+      { rel: "canonical", href: "/sobre" },
+      { rel: "preload", href: aboutImg, as: "image" },
+    ],
   }),
   component: SobrePage,
 });
