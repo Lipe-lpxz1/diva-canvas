@@ -4,9 +4,9 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const Route = createFileRoute("/videos")({
   head: () => ({
     meta: [
-      { title: "Vídeos — Aurora Vale" },
+      { title: "Vídeos — Danella" },
       { name: "description", content: "Clipes oficiais e performances ao vivo." },
-      { property: "og:title", content: "Vídeos — Aurora Vale" },
+      { property: "og:title", content: "Vídeos — Danella" },
       { property: "og:description", content: "Assista clipes e ao vivo." },
       { property: "og:url", content: "/videos" },
     ],

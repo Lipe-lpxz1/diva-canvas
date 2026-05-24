@@ -8,13 +8,13 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aurora Vale — Cantora, intérprete e compositora" },
+      { title: "Danella — Cantora, intérprete e compositora" },
       {
         name: "description",
         content:
-          "Site oficial de Aurora Vale. Ouça o novo álbum, veja a agenda de shows e contrate apresentações.",
+          "Site oficial de Danella. Ouça o novo álbum, veja a agenda de shows e contrate apresentações.",
       },
-      { property: "og:title", content: "Aurora Vale — Site Oficial" },
+      { property: "og:title", content: "Danella — Site Oficial" },
       { property: "og:description", content: "Música cinematográfica, ao vivo e em estúdio." },
       { property: "og:url", content: "/" },
     ],
@@ -30,7 +30,7 @@ function HomePage() {
       <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
         <img
           src={heroImg}
-          alt="Aurora Vale em performance"
+          alt="Danella em performance"
           width={1080}
           height={1920}
           className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
@@ -84,7 +84,7 @@ function HomePage() {
               Uma voz que atravessa o silêncio e devolve <em className="text-brand-accent">presença</em>.
             </h2>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-brand-light/70 md:text-lg">
-              Aurora Vale constrói uma linguagem própria entre a canção
+              Danella constrói uma linguagem própria entre a canção
               brasileira contemporânea, o jazz íntimo e arranjos
               orquestrais. Suas performances são ritualísticas — pensadas como
               cinema: luz, gesto, respiração.
@@ -115,7 +115,7 @@ function HomePage() {
 
             <div className="mt-10 overflow-hidden rounded-sm border border-border bg-brand-dark/60 shadow-2xl">
               <iframe
-                title="Player Spotify - Aurora Vale"
+                title="Player Spotify - Danella"
                 style={{ borderRadius: 2 }}
                 src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3?utm_source=generator&theme=0"
                 width="100%"
@@ -138,7 +138,7 @@ function HomePage() {
             />
             <img
               src={gallery1}
-              alt="Aurora Vale ao microfone"
+              alt="Danella ao microfone"
               loading="lazy"
               width={1024}
               height={1280}
