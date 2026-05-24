@@ -4,6 +4,7 @@ import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import album1 from "@/assets/album-1.jpg";
 import { SectionLabel } from "@/components/SectionLabel";
+import { Scrollytelling } from "@/components/Scrollytelling";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -99,59 +100,8 @@ function HomePage() {
         </div>
       </section>
 
-      {/* STORYTELLING — CAPÍTULOS */}
-      <section className="relative overflow-hidden border-t border-border px-6 py-32 md:px-10 md:py-44">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,theme(colors.brand.accent/8%),transparent_60%)]" />
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 md:grid-cols-12">
-            <div className="md:col-span-4">
-              <SectionLabel index="02">A jornada</SectionLabel>
-              <h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">
-                Três capítulos, <em className="text-brand-accent">uma só voz</em>.
-              </h2>
-              <p className="mt-6 max-w-sm leading-relaxed text-brand-light/65">
-                Da menina que cantava para a janela aos palcos onde o silêncio se
-                tornou matéria. A história de Danella é feita de travessias.
-              </p>
-            </div>
-
-            <ol className="md:col-span-8 space-y-px">
-              {[
-                {
-                  no: "I",
-                  title: "Origem",
-                  text: "Recife, varanda, rádio antigo. A primeira melodia foi um sussurro herdado da avó — uma canção que ninguém mais lembrava.",
-                },
-                {
-                  no: "II",
-                  title: "Travessia",
-                  text: "Anos de bares, estúdios improvisados e uma mala leve. Foi entre São Paulo e Lisboa que a voz encontrou seu próprio idioma.",
-                },
-                {
-                  no: "III",
-                  title: "Presença",
-                  text: "Hoje, cada show é um ritual. Luz baixa, respiração, o tempo se dobrando. O público escuta — e algo se devolve.",
-                },
-              ].map((c) => (
-                <li
-                  key={c.no}
-                  className="group grid grid-cols-[auto_1fr] gap-8 border-t border-border py-10 transition-colors last:border-b hover:bg-brand-muted/20 md:gap-12 md:py-12"
-                >
-                  <span className="font-display text-3xl italic text-brand-accent md:text-4xl">
-                    {c.no}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-2xl md:text-3xl">{c.title}</h3>
-                    <p className="mt-3 max-w-xl leading-relaxed text-brand-light/65">
-                      {c.text}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
+      {/* SCROLLYTELLING */}
+      <Scrollytelling />
 
 
       {/* FEATURED RELEASE + PLAYER */}
