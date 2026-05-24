@@ -7,9 +7,9 @@ import album3 from "@/assets/album-3.jpg";
 export const Route = createFileRoute("/discografia")({
   head: () => ({
     meta: [
-      { title: "Discografia — Aurora Vale" },
-      { name: "description", content: "Álbuns, EPs e singles de Aurora Vale." },
-      { property: "og:title", content: "Discografia — Aurora Vale" },
+      { title: "Discografia — Danella" },
+      { name: "description", content: "Álbuns, EPs e singles de Danella." },
+      { property: "og:title", content: "Discografia — Danella" },
       { property: "og:description", content: "Ouça toda a obra fonográfica." },
       { property: "og:url", content: "/discografia" },
     ],

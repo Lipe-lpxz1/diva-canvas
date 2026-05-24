@@ -8,13 +8,13 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aurora Vale — Cantora, intérprete e compositora" },
+      { title: "Danella — Cantora, intérprete e compositora" },
       {
         name: "description",
         content:
-          "Site oficial de Aurora Vale. Ouça o novo álbum, veja a agenda de shows e contrate apresentações.",
+          "Site oficial de Danella. Ouça o novo álbum, veja a agenda de shows e contrate apresentações.",
       },
-      { property: "og:title", content: "Aurora Vale — Site Oficial" },
+      { property: "og:title", content: "Danella — Site Oficial" },
       { property: "og:description", content: "Música cinematográfica, ao vivo e em estúdio." },
       { property: "og:url", content: "/" },
     ],
@@ -30,7 +30,7 @@ function HomePage() {
       <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
         <img
           src={heroImg}
-          alt="Aurora Vale em performance"
+          alt="Danella em performance"
           width={1080}
           height={1920}
           className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
@@ -84,7 +84,7 @@ function HomePage() {
               Uma voz que atravessa o silêncio e devolve <em className="text-brand-accent">presença</em>.
             </h2>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-brand-light/70 md:text-lg">
-              Aurora Vale constrói uma linguagem própria entre a canção
+              Danella constrói uma linguagem própria entre a canção
               brasileira contemporânea, o jazz íntimo e arranjos
               orquestrais. Suas performances são ritualísticas — pensadas como
               cinema: luz, gesto, respiração.
@@ -99,11 +99,66 @@ function HomePage() {
         </div>
       </section>
 
+      {/* STORYTELLING — CAPÍTULOS */}
+      <section className="relative overflow-hidden border-t border-border px-6 py-32 md:px-10 md:py-44">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,theme(colors.brand.accent/8%),transparent_60%)]" />
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <SectionLabel index="02">A jornada</SectionLabel>
+              <h2 className="mt-6 font-display text-4xl leading-tight md:text-5xl">
+                Três capítulos, <em className="text-brand-accent">uma só voz</em>.
+              </h2>
+              <p className="mt-6 max-w-sm leading-relaxed text-brand-light/65">
+                Da menina que cantava para a janela aos palcos onde o silêncio se
+                tornou matéria. A história de Danella é feita de travessias.
+              </p>
+            </div>
+
+            <ol className="md:col-span-8 space-y-px">
+              {[
+                {
+                  no: "I",
+                  title: "Origem",
+                  text: "Recife, varanda, rádio antigo. A primeira melodia foi um sussurro herdado da avó — uma canção que ninguém mais lembrava.",
+                },
+                {
+                  no: "II",
+                  title: "Travessia",
+                  text: "Anos de bares, estúdios improvisados e uma mala leve. Foi entre São Paulo e Lisboa que a voz encontrou seu próprio idioma.",
+                },
+                {
+                  no: "III",
+                  title: "Presença",
+                  text: "Hoje, cada show é um ritual. Luz baixa, respiração, o tempo se dobrando. O público escuta — e algo se devolve.",
+                },
+              ].map((c) => (
+                <li
+                  key={c.no}
+                  className="group grid grid-cols-[auto_1fr] gap-8 border-t border-border py-10 transition-colors last:border-b hover:bg-brand-muted/20 md:gap-12 md:py-12"
+                >
+                  <span className="font-display text-3xl italic text-brand-accent md:text-4xl">
+                    {c.no}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-2xl md:text-3xl">{c.title}</h3>
+                    <p className="mt-3 max-w-xl leading-relaxed text-brand-light/65">
+                      {c.text}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+
       {/* FEATURED RELEASE + PLAYER */}
       <section className="border-t border-border bg-brand-muted/30 px-6 py-32 md:px-10">
         <div className="mx-auto grid max-w-7xl items-center gap-16 md:grid-cols-2 md:gap-24">
           <div>
-            <SectionLabel index="02">Último lançamento</SectionLabel>
+            <SectionLabel index="03">Último lançamento</SectionLabel>
             <h2 className="mt-6 font-display text-5xl leading-tight md:text-6xl">
               Ecos de Silêncio
             </h2>
@@ -115,7 +170,7 @@ function HomePage() {
 
             <div className="mt-10 overflow-hidden rounded-sm border border-border bg-brand-dark/60 shadow-2xl">
               <iframe
-                title="Player Spotify - Aurora Vale"
+                title="Player Spotify - Danella"
                 style={{ borderRadius: 2 }}
                 src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3?utm_source=generator&theme=0"
                 width="100%"
@@ -138,7 +193,7 @@ function HomePage() {
             />
             <img
               src={gallery1}
-              alt="Aurora Vale ao microfone"
+              alt="Danella ao microfone"
               loading="lazy"
               width={1024}
               height={1280}
@@ -169,7 +224,7 @@ function HomePage() {
       {/* CTA BOOKING */}
       <section className="px-6 py-32 md:px-10 md:py-44">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <SectionLabel index="03">Contratação</SectionLabel>
+          <SectionLabel index="04">Contratação</SectionLabel>
           <h2 className="mt-8 font-display text-4xl leading-tight text-balance md:text-6xl">
             Para um show, festival ou evento privado.
           </h2>

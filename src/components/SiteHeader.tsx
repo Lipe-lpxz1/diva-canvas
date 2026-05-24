@@ -36,7 +36,7 @@ export function SiteHeader() {
           className="font-display text-lg uppercase tracking-luxury text-brand-light"
           onClick={() => setOpen(false)}
         >
-          Aurora&nbsp;Vale
+          Danella&nbsp;Vale
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">

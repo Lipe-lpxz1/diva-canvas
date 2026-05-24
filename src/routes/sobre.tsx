@@ -5,14 +5,14 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre — Aurora Vale" },
+      { title: "Sobre — Danella" },
       {
         name: "description",
         content:
-          "A trajetória de Aurora Vale: formação, influências e o caminho até Ecos de Silêncio.",
+          "A trajetória de Danella: formação, influências e o caminho até Ecos de Silêncio.",
       },
-      { property: "og:title", content: "Sobre Aurora Vale" },
-      { property: "og:description", content: "Biografia da cantora Aurora Vale." },
+      { property: "og:title", content: "Sobre Danella" },
+      { property: "og:description", content: "Biografia da cantora Danella." },
       { property: "og:url", content: "/sobre" },
     ],
     links: [{ rel: "canonical", href: "/sobre" }],
@@ -35,7 +35,7 @@ function SobrePage() {
           <figure className="md:col-span-5">
             <img
               src={aboutImg}
-              alt="Retrato editorial de Aurora Vale"
+              alt="Retrato editorial de Danella"
               loading="lazy"
               width={1200}
               height={1500}
@@ -49,7 +49,7 @@ function SobrePage() {
           <div className="space-y-6 text-base leading-relaxed text-brand-light/75 md:col-span-6 md:col-start-7 md:text-lg">
             <p>
               Nascida no interior de Minas Gerais e formada em canto erudito
-              pela Universidade de São Paulo, <strong>Aurora Vale</strong>
+              pela Universidade de São Paulo, <strong>Danella</strong>
               começou a carreira em pequenas casas de jazz antes de se firmar
               como uma das vozes mais singulares de sua geração.
             </p>

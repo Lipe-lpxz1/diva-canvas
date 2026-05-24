@@ -5,9 +5,9 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato & Contratação — Aurora Vale" },
+      { title: "Contato & Contratação — Danella" },
       { name: "description", content: "Formulário de contratação e contatos da equipe." },
-      { property: "og:title", content: "Contato — Aurora Vale" },
+      { property: "og:title", content: "Contato — Danella" },
       { property: "og:description", content: "Booking, imprensa e parcerias." },
       { property: "og:url", content: "/contato" },
     ],
@@ -36,16 +36,16 @@ function ContatoPage() {
             <div>
               <dt className="text-[10px] uppercase tracking-luxury text-brand-accent">Booking</dt>
               <dd className="mt-2 font-display text-2xl">
-                <a href="mailto:booking@auroravale.com" className="hover:text-brand-accent">
-                  booking@auroravale.com
+                <a href="mailto:booking@danella.com" className="hover:text-brand-accent">
+                  booking@danella.com
                 </a>
               </dd>
             </div>
             <div>
               <dt className="text-[10px] uppercase tracking-luxury text-brand-accent">Imprensa</dt>
               <dd className="mt-2 font-display text-2xl">
-                <a href="mailto:press@auroravale.com" className="hover:text-brand-accent">
-                  press@auroravale.com
+                <a href="mailto:press@danella.com" className="hover:text-brand-accent">
+                  press@danella.com
                 </a>
               </dd>
             </div>
@@ -53,7 +53,7 @@ function ContatoPage() {
               <dt className="text-[10px] uppercase tracking-luxury text-brand-accent">Instagram</dt>
               <dd className="mt-2 font-display text-2xl">
                 <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-brand-accent">
-                  @auroravale
+                  @danella
                 </a>
               </dd>
             </div>

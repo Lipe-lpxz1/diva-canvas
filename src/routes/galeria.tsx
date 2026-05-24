@@ -10,9 +10,9 @@ import hero from "@/assets/hero.jpg";
 export const Route = createFileRoute("/galeria")({
   head: () => ({
     meta: [
-      { title: "Galeria — Aurora Vale" },
+      { title: "Galeria — Danella" },
       { name: "description", content: "Imagens de palco, estúdio e ensaios." },
-      { property: "og:title", content: "Galeria — Aurora Vale" },
+      { property: "og:title", content: "Galeria — Danella" },
       { property: "og:description", content: "Visuais e bastidores." },
       { property: "og:url", content: "/galeria" },
     ],
@@ -22,9 +22,9 @@ export const Route = createFileRoute("/galeria")({
 });
 
 const images = [
-  { src: hero, alt: "Aurora ao microfone, luz dourada", caption: "Sala São Paulo, 2024" },
+  { src: hero, alt: "Danella ao microfone, luz dourada", caption: "Sala São Paulo, 2024" },
   { src: gallery1, alt: "Detalhe — microfone vintage", caption: "Estúdio Vale, Lisboa" },
-  { src: gallery2, alt: "Aurora ao piano, contraluz", caption: "Ensaio — Theatro Municipal" },
+  { src: gallery2, alt: "Danella ao piano, contraluz", caption: "Ensaio — Theatro Municipal" },
   { src: gallery3, alt: "Silhueta no palco", caption: "Festival Coliseu, 2023" },
   { src: about, alt: "Retrato editorial", caption: "Editorial Vogue Brasil" },
 ];

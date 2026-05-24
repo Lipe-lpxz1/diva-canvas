@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 md:grid-cols-3">
           <div>
-            <p className="font-display text-3xl tracking-wide">Aurora Vale</p>
+            <p className="font-display text-3xl tracking-wide">Danella</p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-brand-light/55">
               Cantora, intérprete e compositora. Música como cinema — íntima,
               orquestral, eterna.
@@ -30,10 +30,10 @@ export function SiteFooter() {
               Contato
             </p>
             <a
-              href="mailto:contato@auroravale.com"
+              href="mailto:contato@danella.com"
               className="block font-display text-xl italic text-brand-light hover:text-brand-accent"
             >
-              contato@auroravale.com
+              contato@danella.com
             </a>
             <p className="mt-2 text-sm text-brand-light/55">+55 11 99000 0000</p>
           </div>
@@ -41,7 +41,7 @@ export function SiteFooter() {
 
         <div className="mt-20 flex flex-col items-center justify-between gap-6 border-t border-border pt-8 md:flex-row">
           <p className="text-[10px] uppercase tracking-luxury text-brand-light/40">
-            © {new Date().getFullYear()} Aurora Vale. Todos os direitos reservados.
+            © {new Date().getFullYear()} Danella. Todos os direitos reservados.
           </p>
           <div className="flex gap-8 text-[10px] uppercase tracking-luxury">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-brand-light/60 hover:text-brand-accent">Instagram</a>

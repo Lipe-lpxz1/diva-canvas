@@ -4,9 +4,9 @@ import { SectionLabel } from "@/components/SectionLabel";
 export const Route = createFileRoute("/agenda")({
   head: () => ({
     meta: [
-      { title: "Agenda de Shows — Aurora Vale" },
-      { name: "description", content: "Próximas apresentações e turnê de Aurora Vale." },
-      { property: "og:title", content: "Agenda — Aurora Vale" },
+      { title: "Agenda de Shows — Danella" },
+      { name: "description", content: "Próximas apresentações e turnê de Danella." },
+      { property: "og:title", content: "Agenda — Danella" },
       { property: "og:description", content: "Datas, cidades e ingressos." },
       { property: "og:url", content: "/agenda" },
     ],
@@ -67,8 +67,8 @@ export function AgendaPage() {
 
         <p className="mt-12 max-w-md text-sm text-brand-light/55">
           Para apresentações privadas, festivais ou novas datas, escreva para{" "}
-          <a href="mailto:booking@auroravale.com" className="text-brand-accent hover:underline">
-            booking@auroravale.com
+          <a href="mailto:booking@danella.com" className="text-brand-accent hover:underline">
+            booking@danella.com
           </a>
           .
         </p>
