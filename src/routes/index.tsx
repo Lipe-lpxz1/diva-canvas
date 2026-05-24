@@ -158,7 +158,7 @@ function HomePage() {
       <section className="border-t border-border bg-brand-muted/30 px-6 py-32 md:px-10">
         <div className="mx-auto grid max-w-7xl items-center gap-16 md:grid-cols-2 md:gap-24">
           <div>
-            <SectionLabel index="02">Último lançamento</SectionLabel>
+            <SectionLabel index="03">Último lançamento</SectionLabel>
             <h2 className="mt-6 font-display text-5xl leading-tight md:text-6xl">
               Ecos de Silêncio
             </h2>
@@ -224,7 +224,7 @@ function HomePage() {
       {/* CTA BOOKING */}
       <section className="px-6 py-32 md:px-10 md:py-44">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <SectionLabel index="03">Contratação</SectionLabel>
+          <SectionLabel index="04">Contratação</SectionLabel>
           <h2 className="mt-8 font-display text-4xl leading-tight text-balance md:text-6xl">
             Para um show, festival ou evento privado.
           </h2>
