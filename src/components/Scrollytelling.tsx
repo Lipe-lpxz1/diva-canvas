@@ -30,32 +30,20 @@ export function Scrollytelling() {
   const refs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const viewportCenter = window.innerHeight / 2;
-      let closestIdx = 0;
-      let minDistance = Infinity;
-
-      refs.current.forEach((el, idx) => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(elementCenter - viewportCenter);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIdx = idx;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const idx = Number((visible.target as HTMLElement).dataset.idx);
+          if (!Number.isNaN(idx)) setActive(idx);
         }
-      });
-
-      setActive(closestIdx);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    refs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
