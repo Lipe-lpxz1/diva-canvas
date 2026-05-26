@@ -31,12 +31,14 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
+      <section className="relative h-[100svh] min-h-[560px] w-full overflow-hidden">
         <img
           src={heroImg}
           alt="Danella em performance"
           width={1080}
           height={1920}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/30 to-brand-dark" />
