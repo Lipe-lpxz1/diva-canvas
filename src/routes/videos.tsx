@@ -28,7 +28,7 @@ function VideosPage() {
       <div className="mx-auto max-w-7xl">
         <header className="mb-20 max-w-3xl animate-fade-up">
           <SectionLabel index="05">Vídeos</SectionLabel>
-          <h1 className="mt-6 font-display text-5xl leading-tight md:text-7xl">
+          <h1 className="mt-6 font-display text-[clamp(2.25rem,8vw,4.5rem)] leading-[1.05]">
             Clipes & ao vivo.
           </h1>
         </header>

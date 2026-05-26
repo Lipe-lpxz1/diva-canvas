@@ -48,7 +48,7 @@ function DiscografiaPage() {
       <div className="mx-auto max-w-7xl">
         <header className="mb-20 max-w-3xl animate-fade-up">
           <SectionLabel index="04">Discografia</SectionLabel>
-          <h1 className="mt-6 font-display text-5xl leading-tight md:text-7xl">
+          <h1 className="mt-6 font-display text-[clamp(2.25rem,8vw,4.5rem)] leading-[1.05]">
             Toda a <em>obra</em>.
           </h1>
         </header>
@@ -75,7 +75,7 @@ function DiscografiaPage() {
                 <p className="text-[10px] uppercase tracking-luxury text-brand-accent">
                   {r.year} · {r.type}
                 </p>
-                <h2 className="mt-4 font-display text-5xl leading-tight md:text-6xl">
+                <h2 className="mt-4 font-display text-[clamp(2.25rem,7vw,3.75rem)] leading-[1.05]">
                   {r.title}
                 </h2>
                 <p className="mt-6 max-w-md leading-relaxed text-brand-light/65">
