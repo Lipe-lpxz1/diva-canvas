@@ -31,7 +31,7 @@ export function AgendaPage() {
         <header className="mb-20 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="animate-fade-up">
             <SectionLabel index="02">Ao vivo</SectionLabel>
-            <h1 className="mt-6 font-display text-5xl leading-tight md:text-7xl">
+            <h1 className="mt-6 font-display text-[clamp(2.25rem,8vw,4.5rem)] leading-[1.05]">
               Turnê <em>Ecos de Silêncio</em>
             </h1>
           </div>
