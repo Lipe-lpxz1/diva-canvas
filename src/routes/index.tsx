@@ -49,7 +49,7 @@ function HomePage() {
             <p className="mb-6 text-[10px] uppercase tracking-hero text-brand-accent">
               Novo álbum • Disponível agora
             </p>
-            <h1 className="font-display text-6xl leading-[0.95] text-balance text-brand-light md:text-8xl lg:text-[9rem]">
+            <h1 className="font-display text-[clamp(2.75rem,10vw,9rem)] leading-[0.95] text-balance text-brand-light">
               Ecos de <span className="italic">Silêncio</span>
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-brand-light/70 md:text-lg">
