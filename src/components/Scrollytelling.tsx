@@ -32,15 +32,14 @@ export function Scrollytelling() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-          const idx = Number((visible.target as HTMLElement).dataset.idx);
-          if (!Number.isNaN(idx)) setActive(idx);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number((entry.target as HTMLElement).dataset.idx);
+            if (!Number.isNaN(idx)) setActive(idx);
+          }
+        });
       },
-      { rootMargin: "-40% 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
     );
     refs.current.forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
