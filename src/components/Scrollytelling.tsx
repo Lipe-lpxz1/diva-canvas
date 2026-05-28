@@ -30,45 +30,19 @@ export function Scrollytelling() {
   const refs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    let frame = 0;
-
-    const updateActiveChapter = () => {
-      frame = 0;
-      const viewportCenter = window.innerHeight * 0.5;
-
-      let nextActive = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      refs.current.forEach((el, idx) => {
-        if (!el) return;
-
-        const rect = el.getBoundingClientRect();
-        const chapterCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(chapterCenter - viewportCenter);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          nextActive = idx;
-        }
-      });
-
-      setActive((current) => (current === nextActive ? current : nextActive));
-    };
-
-    const requestUpdate = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(updateActiveChapter);
-    };
-
-    updateActiveChapter();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number((entry.target as HTMLElement).dataset.idx);
+            setActive(idx);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+    refs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -86,33 +60,29 @@ export function Scrollytelling() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
-        {/* Sticky image (Desktop only) */}
-        <div className="hidden md:block md:col-span-6 md:col-start-7 md:order-2">
-          <div className="sticky top-[clamp(5rem,10svh,7rem)] mx-auto w-full max-w-[34rem]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
+        {/* Sticky image */}
+        <div className="md:col-span-6 md:col-start-7 md:order-2">
+          <div className="sticky top-24 aspect-[4/5] overflow-hidden">
             {chapters.map((c, i) => (
               <img
                 key={c.no}
                 src={c.img}
                 alt={c.title}
                 loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover transition-all duration-[800ms] ease-out"
+                className="absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-out"
                 style={{
                   opacity: active === i ? 1 : 0,
-                  transform: active === i ? "scale(1)" : "scale(1.02)",
-                  willChange: "opacity, transform",
+                  transform: active === i ? "scale(1)" : "scale(1.04)",
                 }}
               />
             ))}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent" />
-            </div>
           </div>
         </div>
 
         {/* Chapters */}
-        <ol className="w-full md:col-span-5 md:order-1 md:max-w-[30rem]">
+        <ol className="md:col-span-5 md:order-1">
           {chapters.map((c, i) => (
             <li
               key={c.no}
@@ -120,24 +90,13 @@ export function Scrollytelling() {
                 refs.current[i] = el;
               }}
               data-idx={i}
-              className="flex min-h-[clamp(24rem,58svh,36rem)] flex-col justify-center py-10 md:py-0"
+              className="flex min-h-[60vh] flex-col justify-center"
             >
-              {/* Mobile Inline Image */}
-              <div className="md:hidden mb-6 aspect-[16/9] w-full overflow-hidden rounded-sm border border-border">
-                <img
-                  src={c.img}
-                  alt={c.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-
               <div
-                className="transition-all duration-[600ms] ease-out"
+                className="transition-all duration-1000 ease-out"
                 style={{
                   opacity: active === i ? 1 : 0.25,
-                  transform: active === i ? "translateY(0)" : "translateY(6px)",
+                  transform: active === i ? "translateY(0)" : "translateY(8px)",
                 }}
               >
                 <span className="font-display text-2xl italic text-brand-accent">

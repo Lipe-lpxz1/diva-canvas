@@ -36,7 +36,7 @@ export function SiteHeader() {
           className="font-display text-lg uppercase tracking-luxury text-brand-light"
           onClick={() => setOpen(false)}
         >
-          Danella
+          Danella&nbsp;Vale
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
@@ -69,8 +69,8 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden bg-brand-dark/95 backdrop-blur-md transition-all duration-300 ease-in-out ${
-          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden overflow-hidden bg-brand-dark/95 backdrop-blur-md transition-[max-height,opacity] duration-500 ${
+          open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="flex flex-col gap-2 px-6 pb-10 pt-4">
