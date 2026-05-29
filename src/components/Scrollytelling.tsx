@@ -79,7 +79,7 @@ export function Scrollytelling() {
       <div className="mx-auto grid max-w-7xl grid-cols-12 gap-8 px-6 py-20 md:gap-16 md:px-10 md:py-28">
         {/* Sticky image */}
         <div className="col-span-5 order-2 md:col-span-6 md:col-start-7 flex justify-center md:justify-start">
-          <div className="sticky top-24 aspect-[4/5] w-[416px] max-w-full overflow-hidden">
+          <div className="sticky top-24 h-[520px] w-[416px] max-w-full overflow-hidden">
             {chapters.map((c, i) => (
               <img
                 key={c.no}
