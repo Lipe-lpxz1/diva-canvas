@@ -30,19 +30,35 @@ export function Scrollytelling() {
   const refs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number((entry.target as HTMLElement).dataset.idx);
-            setActive(idx);
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    );
-    refs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    let raf = 0;
+    const compute = () => {
+      const center = window.innerHeight / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      refs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(elCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = i;
+        }
+      });
+      setActive(bestIdx);
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
@@ -60,9 +76,9 @@ export function Scrollytelling() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
+      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-8 px-6 py-20 md:gap-16 md:px-10 md:py-28">
         {/* Sticky image */}
-        <div className="md:col-span-6 md:col-start-7 md:order-2">
+        <div className="col-span-5 order-2 md:col-span-6 md:col-start-7">
           <div className="sticky top-24 aspect-[4/5] overflow-hidden">
             {chapters.map((c, i) => (
               <img
@@ -82,7 +98,7 @@ export function Scrollytelling() {
         </div>
 
         {/* Chapters */}
-        <ol className="md:col-span-5 md:order-1">
+        <ol className="col-span-7 order-1 md:col-span-5">
           {chapters.map((c, i) => (
             <li
               key={c.no}
@@ -90,7 +106,7 @@ export function Scrollytelling() {
                 refs.current[i] = el;
               }}
               data-idx={i}
-              className="flex min-h-[60vh] flex-col justify-center"
+              className="flex min-h-[70vh] flex-col justify-center"
             >
               <div
                 className="transition-all duration-1000 ease-out"
@@ -102,10 +118,10 @@ export function Scrollytelling() {
                 <span className="font-display text-2xl italic text-brand-accent">
                   {c.no}
                 </span>
-                <h3 className="mt-3 font-display text-3xl md:text-4xl">
+                <h3 className="mt-3 font-display text-2xl md:text-4xl">
                   {c.title}
                 </h3>
-                <p className="mt-4 max-w-md leading-relaxed text-brand-light/70">
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-light/70 md:text-base">
                   {c.text}
                 </p>
               </div>

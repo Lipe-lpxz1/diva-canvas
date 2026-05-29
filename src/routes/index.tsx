@@ -118,13 +118,12 @@ function HomePage() {
               como força.
             </p>
 
-            <div className="mt-10 overflow-hidden rounded-sm border border-border bg-brand-dark/60 shadow-2xl">
+            <div className="mt-10 overflow-hidden rounded-sm shadow-2xl">
               <iframe
                 title="Player Spotify - Danella"
-                style={{ borderRadius: 2 }}
                 src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3?utm_source=generator&theme=0"
-                width="100%"
-                height="232"
+                className="block w-full"
+                height={352}
                 frameBorder={0}
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
