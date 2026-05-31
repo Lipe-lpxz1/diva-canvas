@@ -76,10 +76,10 @@ export function Scrollytelling() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-8 px-6 py-20 md:gap-16 md:px-10 md:py-28">
+      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-4 px-6 py-20 sm:gap-8 md:gap-16 md:px-10 md:py-28">
         {/* Sticky image */}
-        <div className="col-span-5 order-2 md:col-span-6 md:col-start-7 flex justify-center md:justify-start">
-          <div className="sticky top-24 h-[520px] w-[416px] max-w-full overflow-hidden">
+        <div className="col-span-6 md:col-span-6 md:col-start-7 flex justify-center md:justify-start">
+          <div className="sticky top-24 aspect-[4/5] w-full max-w-[416px] overflow-hidden md:h-[520px] md:w-[416px] md:aspect-auto">
             {chapters.map((c, i) => (
               <img
                 key={c.no}
@@ -98,7 +98,7 @@ export function Scrollytelling() {
         </div>
 
         {/* Chapters */}
-        <ol className="col-span-7 order-1 md:col-span-5">
+        <ol className="col-span-6 md:col-span-5 md:col-start-1 md:row-start-1">
           {chapters.map((c, i) => (
             <li
               key={c.no}
@@ -115,13 +115,13 @@ export function Scrollytelling() {
                   transform: active === i ? "translateY(0)" : "translateY(8px)",
                 }}
               >
-                <span className="font-display text-2xl italic text-brand-accent">
+                <span className="font-display text-xl italic text-brand-accent sm:text-2xl">
                   {c.no}
                 </span>
-                <h3 className="mt-3 font-display text-2xl md:text-4xl">
+                <h3 className="mt-2 font-display text-lg sm:text-2xl md:text-4xl">
                   {c.title}
                 </h3>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-light/70 md:text-base">
+                <p className="mt-3 max-w-md text-xs leading-relaxed text-brand-light/70 sm:text-sm md:text-base">
                   {c.text}
                 </p>
               </div>
@@ -129,6 +129,7 @@ export function Scrollytelling() {
           ))}
         </ol>
       </div>
+
     </section>
   );
 }
