@@ -77,28 +77,8 @@ export function Scrollytelling() {
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-12 gap-4 px-6 py-20 sm:gap-8 md:gap-16 md:px-10 md:py-28">
-        {/* Sticky image */}
-        <div className="col-span-6 md:col-span-6 md:col-start-7 flex justify-center md:justify-start">
-          <div className="sticky top-24 aspect-[4/5] w-full max-w-[416px] overflow-hidden md:h-[520px] md:w-[416px] md:aspect-auto">
-            {chapters.map((c, i) => (
-              <img
-                key={c.no}
-                src={c.img}
-                alt={c.title}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-out"
-                style={{
-                  opacity: active === i ? 1 : 0,
-                  transform: active === i ? "scale(1)" : "scale(1.04)",
-                }}
-              />
-            ))}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent" />
-          </div>
-        </div>
-
         {/* Chapters */}
-        <ol className="col-span-6 md:col-span-5 md:col-start-1 md:row-start-1">
+        <ol className="col-span-7 md:col-span-5">
           {chapters.map((c, i) => (
             <li
               key={c.no}
@@ -118,7 +98,7 @@ export function Scrollytelling() {
                 <span className="font-display text-xl italic text-brand-accent sm:text-2xl">
                   {c.no}
                 </span>
-                <h3 className="mt-2 font-display text-lg sm:text-2xl md:text-4xl">
+                <h3 className="mt-2 font-display text-xl sm:text-2xl md:text-4xl">
                   {c.title}
                 </h3>
                 <p className="mt-3 max-w-md text-xs leading-relaxed text-brand-light/70 sm:text-sm md:text-base">
@@ -128,7 +108,28 @@ export function Scrollytelling() {
             </li>
           ))}
         </ol>
+
+        {/* Sticky image */}
+        <div className="col-span-5 md:col-span-6 md:col-start-7 flex justify-end md:justify-start">
+          <div className="sticky top-24 aspect-[4/5] w-full max-w-[416px] overflow-hidden md:h-[520px] md:w-[416px] md:aspect-auto">
+            {chapters.map((c, i) => (
+              <img
+                key={c.no}
+                src={c.img}
+                alt={c.title}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-all duration-[1400ms] ease-out"
+                style={{
+                  opacity: active === i ? 1 : 0,
+                  transform: active === i ? "scale(1)" : "scale(1.04)",
+                }}
+              />
+            ))}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent" />
+          </div>
+        </div>
       </div>
+
 
     </section>
   );
