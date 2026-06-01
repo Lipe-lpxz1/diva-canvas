@@ -77,9 +77,12 @@ export function Scrollytelling() {
       </div>
 
       {/* MOBILE: stacked layout */}
-      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-6 py-16 md:hidden">
+      <div className="mx-auto flex max-w-2xl flex-col px-6 py-16 md:hidden">
         {chapters.map((c) => (
-          <article key={c.no} className="flex flex-col gap-5">
+          <article
+            key={c.no}
+            className="flex animate-fade-up flex-col gap-5 pb-16 last:pb-0"
+          >
             <div>
               <span className="font-display text-2xl italic text-brand-accent">
                 {c.no}
@@ -89,7 +92,7 @@ export function Scrollytelling() {
                 {c.text}
               </p>
             </div>
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl shadow-md shadow-black/30">
               <img
                 src={c.img}
                 alt={c.title}
