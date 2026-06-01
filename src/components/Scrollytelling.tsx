@@ -106,7 +106,7 @@ export function Scrollytelling() {
       </div>
 
       {/* DESKTOP/TABLET: sticky scrollytelling */}
-      <div className="mx-auto hidden max-w-7xl grid-cols-12 gap-16 px-10 py-28 md:grid">
+      <div className="mx-auto hidden max-w-5xl grid-cols-12 items-center gap-12 px-8 py-28 md:grid lg:gap-24 lg:px-16">
         <ol className="col-span-5">
           {chapters.map((c, i) => (
             <li
