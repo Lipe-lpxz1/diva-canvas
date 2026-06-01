@@ -106,7 +106,7 @@ export function Scrollytelling() {
       </div>
 
       {/* DESKTOP/TABLET: sticky scrollytelling */}
-      <div className="mx-auto hidden max-w-7xl grid-cols-12 gap-16 px-10 py-28 md:grid">
+      <div className="mx-auto hidden max-w-5xl grid-cols-12 items-center gap-12 px-8 py-28 md:grid lg:gap-24 lg:px-16">
         <ol className="col-span-5">
           {chapters.map((c, i) => (
             <li
@@ -124,11 +124,11 @@ export function Scrollytelling() {
                   transform: active === i ? "translateY(0)" : "translateY(8px)",
                 }}
               >
-                <span className="font-display text-2xl italic text-brand-accent">
+                <span className="font-display text-2xl italic tracking-widest text-brand-accent">
                   {c.no}
                 </span>
                 <h3 className="mt-2 font-display text-4xl">{c.title}</h3>
-                <p className="mt-3 max-w-md text-base leading-relaxed text-brand-light/70">
+                <p className="mt-3 max-w-md text-base leading-relaxed text-white/60">
                   {c.text}
                 </p>
               </div>
@@ -137,7 +137,7 @@ export function Scrollytelling() {
         </ol>
 
         <div className="col-span-6 col-start-7 flex justify-start">
-          <div className="sticky top-24 h-[520px] w-[416px] max-w-full overflow-hidden">
+          <div className="sticky top-24 h-[520px] w-[416px] max-w-full overflow-hidden rounded-2xl">
             {chapters.map((c, i) => (
               <img
                 key={c.no}
