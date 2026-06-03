@@ -105,11 +105,11 @@ function HomePage() {
 
 
       {/* FEATURED RELEASE + PLAYER */}
-      <section className="border-t border-border bg-brand-muted/30 px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2 md:gap-20">
+      <section className="border-t border-border bg-brand-muted/30 px-6 py-32 md:px-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-16 md:grid-cols-2 md:gap-24">
           <div>
             <SectionLabel index="03">Último lançamento</SectionLabel>
-            <h2 className="mt-6 font-display text-4xl leading-tight md:text-6xl">
+            <h2 className="mt-6 font-display text-5xl leading-tight md:text-6xl">
               Ecos de Silêncio
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-brand-light/65">
@@ -118,7 +118,7 @@ function HomePage() {
               como força.
             </p>
 
-            <div className="mt-10 overflow-hidden rounded-xl shadow-md shadow-black/20 md:shadow-2xl">
+            <div className="mt-10 overflow-hidden rounded-sm shadow-2xl">
               <iframe
                 title="Player Spotify - Danella"
                 src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3?utm_source=generator&theme=0"
@@ -138,7 +138,7 @@ function HomePage() {
               loading="lazy"
               width={1024}
               height={1024}
-              className="aspect-square w-full rounded-xl object-cover shadow-md shadow-black/20"
+              className="aspect-square w-full object-cover"
             />
             <img
               src={gallery1}
@@ -146,7 +146,7 @@ function HomePage() {
               loading="lazy"
               width={1024}
               height={1280}
-              className="mt-12 aspect-[4/5] w-full rounded-xl object-cover shadow-md shadow-black/20"
+              className="mt-12 aspect-[4/5] w-full object-cover"
             />
           </div>
         </div>

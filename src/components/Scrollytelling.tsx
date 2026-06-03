@@ -77,12 +77,9 @@ export function Scrollytelling() {
       </div>
 
       {/* MOBILE: stacked layout */}
-      <div className="mx-auto flex max-w-2xl flex-col px-6 py-16 md:hidden">
+      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-6 py-16 md:hidden">
         {chapters.map((c) => (
-          <article
-            key={c.no}
-            className="flex animate-fade-up flex-col gap-5 pb-16 last:pb-0"
-          >
+          <article key={c.no} className="flex flex-col gap-5">
             <div>
               <span className="font-display text-2xl italic text-brand-accent">
                 {c.no}
@@ -92,7 +89,7 @@ export function Scrollytelling() {
                 {c.text}
               </p>
             </div>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl shadow-md shadow-black/30">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
               <img
                 src={c.img}
                 alt={c.title}
@@ -106,7 +103,7 @@ export function Scrollytelling() {
       </div>
 
       {/* DESKTOP/TABLET: sticky scrollytelling */}
-      <div className="mx-auto hidden max-w-5xl grid-cols-12 items-center gap-12 px-8 py-28 md:grid lg:gap-24 lg:px-16">
+      <div className="mx-auto hidden max-w-7xl grid-cols-12 gap-16 px-10 py-28 md:grid">
         <ol className="col-span-5">
           {chapters.map((c, i) => (
             <li
@@ -124,11 +121,11 @@ export function Scrollytelling() {
                   transform: active === i ? "translateY(0)" : "translateY(8px)",
                 }}
               >
-                <span className="font-display text-2xl italic tracking-widest text-brand-accent">
+                <span className="font-display text-2xl italic text-brand-accent">
                   {c.no}
                 </span>
                 <h3 className="mt-2 font-display text-4xl">{c.title}</h3>
-                <p className="mt-3 max-w-md text-base leading-relaxed text-white/60">
+                <p className="mt-3 max-w-md text-base leading-relaxed text-brand-light/70">
                   {c.text}
                 </p>
               </div>
@@ -137,7 +134,7 @@ export function Scrollytelling() {
         </ol>
 
         <div className="col-span-6 col-start-7 flex justify-start">
-          <div className="sticky top-24 h-[520px] w-[416px] max-w-full overflow-hidden rounded-2xl">
+          <div className="sticky top-24 h-[520px] w-[416px] max-w-full overflow-hidden">
             {chapters.map((c, i) => (
               <img
                 key={c.no}
