@@ -208,4 +208,23 @@ body,
   .md\:px-10 { padding-left: 40px !important; padding-right: 40px !important; }
 }
 
+/* =====================================================================
+   HERO — enquadramento fixo por breakpoint
+   ---------------------------------------------------------------------
+   object-position travado para que o rosto e o microfone permaneçam
+   visíveis em qualquer largura dentro do mesmo breakpoint
+   (Desktop 1024–2560 mantém o mesmo enquadramento).
+   ===================================================================== */
+.hero-image {
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-image { object-position: 50% 28%; }
+}
+@media (min-width: 1024px) {
+  .hero-image { object-position: 50% 32%; }
+}
+
+
 
