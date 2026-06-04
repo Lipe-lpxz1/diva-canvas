@@ -28,13 +28,13 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative w-screen min-h-screen overflow-hidden">
+      <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
         <img
           src={heroImg}
           alt="Danella em performance"
           width={1080}
           height={1920}
-          className="hero-image absolute inset-0 h-full w-full animate-slow-zoom"
+          className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/30 to-brand-dark" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/60 via-transparent to-brand-dark/30" />

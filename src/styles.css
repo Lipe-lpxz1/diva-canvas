@@ -125,12 +125,8 @@
     letter-spacing: 0.5em;
   }
   .text-balance {
-    /* Desativado intencionalmente: text-wrap:balance reflui o título
-       conforme a largura disponível, quebrando a regra de "sem mudanças
-       visuais dentro do mesmo breakpoint". */
-    text-wrap: normal;
+    text-wrap: balance;
   }
-
   .bg-gradient-soft {
     background-image: var(--gradient-soft);
   }
@@ -172,59 +168,4 @@
 
 html { scroll-behavior: smooth; }
 * { transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
-
-/* =====================================================================
-   RESPONSIVIDADE POR BREAKPOINT FIXO + FULL-WIDTH
-   ---------------------------------------------------------------------
-   - Shell (html/body/#root) 100% sem overflow horizontal.
-   - Fundos das seções ocupam 100% da viewport (sem margens laterais).
-   - Containers (.max-w-7xl) organizam o conteúdo interno com largura
-     FIXA por breakpoint.
-   - Padding lateral travado por breakpoint (sem fluidez).
-   ===================================================================== */
-
-html,
-body,
-#root {
-  width: 100%;
-  max-width: none;
-  overflow-x: hidden;
-}
-
-/* MOBILE: padding fixo, container ocupa 100% */
-@media (max-width: 767px) {
-  .max-w-7xl { max-width: 100% !important; }
-}
-
-/* TABLET: container e padding lateral fixos */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .max-w-7xl { max-width: 720px !important; }
-  .md\:px-10 { padding-left: 32px !important; padding-right: 32px !important; }
-}
-
-/* DESKTOP: container FIXO em 1200px independente da largura da janela */
-@media (min-width: 1024px) {
-  .max-w-7xl { max-width: 1200px !important; }
-  .md\:px-10 { padding-left: 40px !important; padding-right: 40px !important; }
-}
-
-/* =====================================================================
-   HERO — enquadramento fixo por breakpoint
-   ---------------------------------------------------------------------
-   object-position travado para que o rosto e o microfone permaneçam
-   visíveis em qualquer largura dentro do mesmo breakpoint
-   (Desktop 1024–2560 mantém o mesmo enquadramento).
-   ===================================================================== */
-.hero-image {
-  object-fit: cover;
-  object-position: 50% 22%;
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero-image { object-position: 50% 28%; }
-}
-@media (min-width: 1024px) {
-  .hero-image { object-position: 50% 32%; }
-}
-
-
 
