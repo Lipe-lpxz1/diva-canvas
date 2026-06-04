@@ -1,10 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
+const AGENDA_VISIBLE = false;
+
 const links = [
   { to: "/", label: "Home" },
   { to: "/sobre", label: "Sobre" },
-  { to: "/agenda", label: "Agenda" },
+  ...(AGENDA_VISIBLE ? [{ to: "/agenda", label: "Agenda" } as const] : []),
   { to: "/galeria", label: "Galeria" },
   { to: "/discografia", label: "Discografia" },
   { to: "/videos", label: "Vídeos" },
