@@ -125,8 +125,12 @@
     letter-spacing: 0.5em;
   }
   .text-balance {
-    text-wrap: balance;
+    /* Desativado intencionalmente: text-wrap:balance reflui o título
+       conforme a largura disponível, quebrando a regra de "sem mudanças
+       visuais dentro do mesmo breakpoint". */
+    text-wrap: normal;
   }
+
   .bg-gradient-soft {
     background-image: var(--gradient-soft);
   }
@@ -168,4 +172,33 @@
 
 html { scroll-behavior: smooth; }
 * { transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+/* =====================================================================
+   RESPONSIVIDADE POR BREAKPOINT FIXO
+   ---------------------------------------------------------------------
+   Sem fluidez entre larguras. O layout só muda na transição entre
+   Mobile (<768), Tablet (768–1023) e Desktop (>=1024).
+   - Containers (.max-w-7xl) recebem largura FIXA por breakpoint.
+   - Conteúdo interno não reflui ao redimensionar a janela dentro
+     da mesma faixa.
+   ===================================================================== */
+
+/* MOBILE: padding fixo, container ocupa 100% */
+@media (max-width: 767px) {
+  .max-w-7xl { max-width: 100% !important; }
+}
+
+/* TABLET: container e padding lateral fixos */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .max-w-7xl { max-width: 720px !important; }
+  /* Trava o padding horizontal das seções para não escalar com a janela */
+  .md\:px-10 { padding-left: 32px !important; padding-right: 32px !important; }
+}
+
+/* DESKTOP: container FIXO em 1200px independente da largura da janela */
+@media (min-width: 1024px) {
+  .max-w-7xl { max-width: 1200px !important; }
+  .md\:px-10 { padding-left: 40px !important; padding-right: 40px !important; }
+}
+
 
