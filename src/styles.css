@@ -174,14 +174,22 @@ html { scroll-behavior: smooth; }
 * { transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1); }
 
 /* =====================================================================
-   RESPONSIVIDADE POR BREAKPOINT FIXO
+   RESPONSIVIDADE POR BREAKPOINT FIXO + FULL-WIDTH
    ---------------------------------------------------------------------
-   Sem fluidez entre larguras. O layout só muda na transição entre
-   Mobile (<768), Tablet (768–1023) e Desktop (>=1024).
-   - Containers (.max-w-7xl) recebem largura FIXA por breakpoint.
-   - Conteúdo interno não reflui ao redimensionar a janela dentro
-     da mesma faixa.
+   - Shell (html/body/#root) 100% sem overflow horizontal.
+   - Fundos das seções ocupam 100% da viewport (sem margens laterais).
+   - Containers (.max-w-7xl) organizam o conteúdo interno com largura
+     FIXA por breakpoint.
+   - Padding lateral travado por breakpoint (sem fluidez).
    ===================================================================== */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: none;
+  overflow-x: hidden;
+}
 
 /* MOBILE: padding fixo, container ocupa 100% */
 @media (max-width: 767px) {
@@ -191,7 +199,6 @@ html { scroll-behavior: smooth; }
 /* TABLET: container e padding lateral fixos */
 @media (min-width: 768px) and (max-width: 1023px) {
   .max-w-7xl { max-width: 720px !important; }
-  /* Trava o padding horizontal das seções para não escalar com a janela */
   .md\:px-10 { padding-left: 32px !important; padding-right: 32px !important; }
 }
 
