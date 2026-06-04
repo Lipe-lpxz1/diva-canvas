@@ -60,12 +60,14 @@ function HomePage() {
                 Ouvir agora
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
-              <Link
-                to="/agenda"
-                className="inline-flex items-center gap-3 border border-brand-light/30 px-8 py-4 text-[10px] font-semibold uppercase tracking-luxury text-brand-light transition-colors hover:border-brand-accent hover:text-brand-accent"
-              >
-                Próximos shows
-              </Link>
+              {AGENDA_VISIBLE && (
+                <Link
+                  to="/agenda"
+                  className="inline-flex items-center gap-3 border border-brand-light/30 px-8 py-4 text-[10px] font-semibold uppercase tracking-luxury text-brand-light transition-colors hover:border-brand-accent hover:text-brand-accent"
+                >
+                  Próximos shows
+                </Link>
+              )}
             </div>
           </div>
         </div>

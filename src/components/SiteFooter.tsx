@@ -20,7 +20,9 @@ export function SiteFooter() {
             </p>
             <ul className="space-y-3 text-sm text-brand-light/70">
               <li><Link to="/sobre" className="hover:text-brand-accent">Sobre</Link></li>
-              <li><Link to="/agenda" className="hover:text-brand-accent">Agenda</Link></li>
+              {AGENDA_VISIBLE && (
+                <li><Link to="/agenda" className="hover:text-brand-accent">Agenda</Link></li>
+              )}
               <li><Link to="/discografia" className="hover:text-brand-accent">Discografia</Link></li>
               <li><Link to="/contato" className="hover:text-brand-accent">Contratação</Link></li>
             </ul>
