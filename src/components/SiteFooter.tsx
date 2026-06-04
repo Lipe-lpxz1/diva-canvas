@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { AGENDA_VISIBLE } from "@/lib/feature-flags";
 
 export function SiteFooter() {
   return (

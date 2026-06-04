@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-
-const AGENDA_VISIBLE = false;
+import { AGENDA_VISIBLE } from "@/lib/feature-flags";
 
 const links = [
   { to: "/", label: "Home" },
