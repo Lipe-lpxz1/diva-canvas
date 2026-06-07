@@ -108,7 +108,7 @@ function HomePage() {
 
 
       {/* FEATURED RELEASE + PLAYER */}
-      <section className="border-t border-border bg-brand-muted/30 px-6 py-24 md:px-10 md:py-32">
+      <section className="border-t border-border bg-brand-muted/30 px-6 py-12 md:px-10 lg:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
           <div>
             <SectionLabel index="03">Último lançamento</SectionLabel>
