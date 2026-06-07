@@ -79,11 +79,11 @@ function HomePage() {
 
       {/* INTRO */}
       <section className="px-6 py-32 md:px-10 md:py-44">
-        <div className="mx-auto grid max-w-7xl gap-16 md:grid-cols-12">
-          <div className="md:col-span-4">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-3">
             <SectionLabel index="01">A artista</SectionLabel>
           </div>
-          <div className="md:col-span-7 md:col-start-6">
+          <div className="md:col-span-9 md:col-start-4">
             <h2 className="font-display text-4xl leading-tight text-balance md:text-6xl">
               Uma voz que atravessa o silêncio e devolve <em className="text-brand-accent">presença</em>.
             </h2>
@@ -108,7 +108,7 @@ function HomePage() {
 
 
       {/* FEATURED RELEASE + PLAYER */}
-      <section className="border-t border-border bg-brand-muted/30 px-6 py-24 md:px-10 md:py-32">
+      <section className="border-t border-border bg-brand-muted/30 px-6 py-12 md:px-10 lg:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
           <div>
             <SectionLabel index="03">Último lançamento</SectionLabel>
