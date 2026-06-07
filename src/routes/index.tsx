@@ -108,8 +108,8 @@ function HomePage() {
 
 
       {/* FEATURED RELEASE + PLAYER */}
-      <section className="border-t border-border bg-brand-muted/30 px-6 py-32 md:px-10">
-        <div className="mx-auto grid max-w-7xl items-center gap-16 md:grid-cols-2 md:gap-24">
+      <section className="border-t border-border bg-brand-muted/30 px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
           <div>
             <SectionLabel index="03">Último lançamento</SectionLabel>
             <h2 className="mt-6 font-display text-5xl leading-tight md:text-6xl">
@@ -134,26 +134,20 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="relative aspect-[4/5] w-full overflow-hidden shadow-2xl">
             <img
               src={album1}
               alt="Capa do álbum Ecos de Silêncio"
               loading="lazy"
               width={1024}
-              height={1024}
-              className="aspect-square w-full object-cover"
-            />
-            <img
-              src={gallery1}
-              alt="Danella ao microfone"
-              loading="lazy"
-              width={1024}
               height={1280}
-              className="mt-12 aspect-[4/5] w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-transparent" />
           </div>
         </div>
       </section>
+
 
       {/* WIDE IMAGE */}
       <section className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
