@@ -35,7 +35,7 @@ function HomePage() {
           alt="Danella em performance"
           width={1080}
           height={1920}
-          className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
+          className="absolute inset-0 h-full w-full object-cover object-top animate-slow-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/30 to-brand-dark" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/60 via-transparent to-brand-dark/30" />
